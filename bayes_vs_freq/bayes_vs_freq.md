@@ -4,7 +4,7 @@ Josh Hanson, Eppo Customer Data Scientist
 
 ## Objective
 
-In this notebook, I am to utilize a simulation-based approach to
+In this notebook, I aim to utilize a simulation-based approach to
 illustrate that a Bayesian Inference model will always result in the
 same decision as a Frequentist Inference model when the Bayesian
 Inference model utilizes uninformative priors. 
