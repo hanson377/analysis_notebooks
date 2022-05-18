@@ -4,10 +4,17 @@ Josh Hanson, Eppo Customer Data Scientist
 
 ## Objective
 
+<<<<<<< Updated upstream
 In this notebook, I aim to utilize a simulation-based approach to
 illustrate that a Bayesian Inference model will always result in the
 same decision as a Frequentist Inference model when the Bayesian
 Inference model utilizes uninformative priors. 
+=======
+In this notebook, I utilize a simulation-based approach to illustrate
+that a Bayesian Inference model will always result in the same decision
+as a Frequentist Inference model when the Bayesian Inference model
+utilizes uninformative priors.  
+>>>>>>> Stashed changes
 
 I do this by running 25k, simulated, random experiments. For each
 simulated experiment, I record:
@@ -35,8 +42,8 @@ from a uniform distribution between the values of 0 and 0.1. This random
 number serves as our hypothetical, relative percent increase observed
 for the experiment group.  
 
-From this random draw of values, I perform calculate both a Frequentist
-P-Value from a one-sided T-Test and the analogous Bayesian inferential
+From this random draw of values, I calculate both a Frequentist P-Value
+from a one-sided T-Test and the analogous Bayesian inferential
 statistic, the probability that the Variant is at least as good as the
 Control.
 
@@ -82,17 +89,19 @@ relationship.
 ``` r
 sim_results %>% sample_n(1000,replace=FALSE) %>% ggplot(aes(x=1-probs,y=pvalue)) +
   ggtitle('Bayesian Probability vs Frequentist P-Value',subtitle='Results from 25k Simulated Experiments') +
-  geom_jitter(size=10,alpha=.1,colour='dodgerblue') +
+  geom_jitter(size=10,alpha=.1,colour='#F8C630') +
   scale_y_continuous(labels = scales::percent) +
   scale_x_continuous(labels = scales::percent) +
   coord_cartesian(xlim=c(0,1),ylim=c(0,1)) +
   geom_abline(slope=1,linetype='longdash',colour='red',alpha=0.2) +
   xlab('1-(Bayesian Probability)') +
   ylab('P-value from One-Sided T-Test') +
-  theme(plot.title = element_text(face = "bold",size=24)) +
+  theme(plot.title = element_text(face = "bold",size=24,family='AkkuratLL-Bold')) +
   theme(axis.text=element_text(size=20),
         axis.title=element_text(size=24,face="bold"),
-        plot.subtitle=element_text(size=20,face="italic", color="black"))
+        plot.subtitle=element_text(size=20,face="italic", color="black")) +
+  theme(panel.background = element_rect(fill = "#752570", colour = "#752570",size = 0.5))  +
+  theme(text=element_text(family="AkkuratLL-Regular"))
 ```
 
 ![](bayes_vs_freq_files/figure-gfm/unnamed-chunk-2-1.png)<!-- -->
